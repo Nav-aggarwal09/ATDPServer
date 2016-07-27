@@ -1,7 +1,9 @@
 /**
  * This is a server that stores files. Has two options: PUT <filename> or GET <filename>
  * 
- * @author Drenguin (from hubpages.com), Modified by Arnav Aggarwal
+ * 
+ * @author Drenguin (from hubpages.com), Modified by Arnav Aggarwal (arnav0908_at_gmail.com)
+ * Around 30% of the code is from Drenguin, rest is orginal from Arnav Aggarwal
  * @version July 24 2016
  */
 
@@ -73,7 +75,7 @@ public class Server extends JFrame
         }
     }
      
-    //Here we create the ClientThread inner class and have it implement Runnable
+    //create the ClientThread inner class and have it implement Runnable
     //This means that it can be used as a thread
     class ClientThread implements Runnable
     {
@@ -104,6 +106,11 @@ public class Server extends JFrame
           *   flush and close file
           *   
           * }
+          * if line begins with CurUsers
+          * {
+          * Take global array (in server class)
+          * print out all the user ports
+          * }
           * print BYE to socket and exit 
           */
         
@@ -122,41 +129,6 @@ public class Server extends JFrame
             	
             	sOutput.println("Connected to Arnav socket at " + new Date() + "\r\n");
             	
-            	/*
-            	//Asks name before continuing on. Used in Current Users function
-        		sOutput.println("Please type name: ");
-        		String name = socketString;
-        		//This variable increments when there is already a name with the same 
-        		int sameNameError = 0;
-        		for(int z = 0;z < peerNames.length;z++)
-        		{
-        			if(peerNames[z].equals(name))
-        			{
-        				sameNameError++;
-        				sOutput.println("!>!> Error: Name already registered");
-        			}
-
-        			
-        		}
-        		if(sameNameError != 0)
-        		{
-        			sOutput.println("!!>>> Please reconnect and select a different name");
-        			sOutput.close();
-        			
-        			
-        		}
-        		if(sameNameError == 0)
-        		{
-        			for(int z = 0; z < peerNames.length; z++)
-        			{
-        				if(peerNames[z] == null)
-        				{
-        					peerNames[z] = name;
-        					sOutput.println("Registered: " + name);
-        				}
-        			}
-        		}
-        		*/
             	sOutput.println("Functions (case does not matter): PUT, GET, CurrUsers");
             	// input handler
             	String socketString = bsReader.readLine();
@@ -251,19 +223,7 @@ public class Server extends JFrame
                 
                 
             }
-    		/*
-    		catch(InterruptedException ex)
-    		{
-    			System.out.println("Error: " + ex);
-    		
-    		
-        		
-        	}
-        	*/ 
-        
-        
-       
-     
+
         } // end of run class
     } // end ClientThread class
 }//end of server class
