@@ -1,2 +1,5 @@
+
 # ATDPServer
-Client server file transfer for ATDP Berkley 2016
+Multithreaded TCP Client server file transfer made in summer 2016. 
+
+Run the server first then the client file to connect to the server
